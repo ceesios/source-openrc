@@ -52,7 +52,7 @@ Else {
     foreach($line in Get-Content $openrc) {
         if($line -match "^export.*"){
             # Strip export
-            $stripped_line=([string]($line)).Split("export ")[1]
+            $stripped_line=([string]($line)).Replace("export ","")
             $key=([string]($stripped_line)).Split("=")[0].Replace("`"","")
             $value=([string]($line)).Split("=")[1].Replace("`"","")
             Write-Host $key $value
