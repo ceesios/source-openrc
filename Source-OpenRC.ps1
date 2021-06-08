@@ -62,7 +62,7 @@ Else {
     }
 }
 
-If (-Not (test-path Env:OS_PROJECT_ID)) {
+If (-Not (test-path Env:OS_PROJECT_ID) -and -Not (test-path Env:OS_PROJECT_NAME)) {
     $project = Read-Host 'Please enter your 32 character OpenStack project ID or exact project name'
 
     if ($project -eq [string]::empty) {
